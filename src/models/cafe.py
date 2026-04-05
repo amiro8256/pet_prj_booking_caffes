@@ -7,7 +7,7 @@ from sqlalchemy.orm import Mapped, relationship, mapped_column
 from core.constants import MAX_LEN_PHONE
 from core.db import Base, field_not_null_str, field_null_desc_str
 
-from .association_tables import cafe_actions
+from .association_tables import cafe_actions, cafe_managers
 
 if TYPE_CHECKING:
     from .action import Action
@@ -37,8 +37,8 @@ class Cafe(Base):
         unique=True,
     )
     managers: Mapped[list['User']] = relationship(
-        secondary='cafe_managers',
-        back_populates='cafes',
+        secondary=cafe_managers,
+        back_populates='cafes_manager',
         lazy='select',
     )
     actions: Mapped[List['Action']] = relationship(
@@ -54,7 +54,7 @@ class Cafe(Base):
         back_populates='cafe',
         lazy='select',
     )
-    times_lots: Mapped[list['TimeSlot']] = relationship(
+    time_slots: Mapped[list['TimeSlot']] = relationship(
         back_populates='cafe',
         lazy='select',
     )

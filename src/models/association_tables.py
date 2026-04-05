@@ -23,8 +23,8 @@ cafe_managers = Table(
     Column('manager_id', ForeignKey('users.id'), primary_key=True),
 )
 
-bookings_tabels = Table(
-    'bookings_tabels',
+bookings_tables = Table(
+    'bookings_tables',
     Base.metadata,
     Column('booking_id', ForeignKey('bookings.id'), primary_key=True),
     Column('table_id', ForeignKey('tables.id'), primary_key=True),

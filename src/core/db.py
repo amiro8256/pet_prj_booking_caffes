@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Annotated
 
 from sqlalchemy import Integer, DateTime, String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.sql import func
 from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import (
@@ -46,21 +46,21 @@ class Base(DeclarativeBase):
     )
 
 
-sqlite_engine = create_engine(settings.DB_SQLite_URL, echo=True)
-Session = sessionmaker(sqlite_engine)
+sqlite_engine = create_async_engine(settings.DB_SQLite_URL, echo=True)
+Session = async_sessionmaker(sqlite_engine, class_=AsyncSession)
 
 
 def get_sync_session():
-    """Синхронный генератор сессий."""
+    """Асинхронный генератор сессий  для sqlite."""
     with Session() as session:
         yield session
 
 
-engine = create_async_engine(settings.DATABASE_URL, echo=True)
-AsyncSessionLocal = async_sessionmaker(engine, class_=AsyncSession)
+# engine = create_async_engine(settings.DATABASE_URL, echo=True)
+# AsyncSessionLocal = async_sessionmaker(engine, class_=AsyncSession)
 
 
-async def get_async_session():
-    """Асинхронный генератор сессий."""
-    async with AsyncSessionLocal() as async_session:
-        yield async_session
+# async def get_async_session():
+#     """Асинхронный генератор сессий."""
+#     async with AsyncSessionLocal() as async_session:
+#         yield async_session

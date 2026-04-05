@@ -15,7 +15,7 @@ class Action(Base):
 
     description: Mapped[str] = mapped_column(nullable=False)
     photo_id: Mapped[str | None]
-    cafe: Mapped[list['Cafe']] = relationship(
+    cafes: Mapped[list['Cafe']] = relationship(
         secondary=cafe_actions,
         back_populates='actions',
         lazy='selectin',

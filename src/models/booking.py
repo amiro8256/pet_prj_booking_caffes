@@ -10,7 +10,7 @@ from core.constants import MAX_LEN_STR
 from .association_tables import (
     bookings_timeslots,
     bookings_dishes,
-    bookings_tabels,
+    bookings_tables,
 )
 
 if TYPE_CHECKING:
@@ -56,11 +56,11 @@ class Booking(Base):
         lazy='select',
     )
     tables: Mapped[list['Table']] = relationship(
-        secondary=bookings_tabels,
+        secondary=bookings_tables,
         back_populates='bookings',
         lazy='select',
     )
-    timeslots: Mapped[list['TimeSlot']] = relationship(
+    time_slots: Mapped[list['TimeSlot']] = relationship(
         secondary=bookings_timeslots,
         back_populates='bookings',
         lazy='select',

@@ -36,7 +36,7 @@ class Dish(Base):
         back_populates='dishes',
         lazy='selectin',
     )
-    booking: Mapped[list['Booking']] = relationship(
+    bookings: Mapped[list['Booking']] = relationship(
         secondary=bookings_dishes,
         back_populates='dishes',
         lazy='selectin',

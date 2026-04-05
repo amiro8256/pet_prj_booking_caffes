@@ -5,5 +5,7 @@ sqlalchemy==2.0.43
 pydantic==2.11.7
 pydantic-settings==2.10.1
 asyncpg==0.30.0
-aiosqlite==0.22.1
+aiosqlite==0.22.1 # для SQLite, если используем
 alembic-postgresql-enum==1.8.0
+passlib==1.7.4
+bcrypt==4.3.0

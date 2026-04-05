@@ -25,7 +25,7 @@ class TimeSlot(Base):
     start_time: Mapped[time] = mapped_column(Time, nullable=False)
     end_time: Mapped[time] = mapped_column(Time, nullable=False)
     description: Mapped[str] = mapped_column(String, nullable=False)
-    booking: Mapped[list['Booking']] = relationship(
+    bookings: Mapped[list['Booking']] = relationship(
         secondary=bookings_timeslots,
         back_populates='time_slots',
         lazy='select',

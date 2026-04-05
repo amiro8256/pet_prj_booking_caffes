@@ -4,9 +4,10 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from core.db import Base
-from .association_tables import bookings_tabels
+from .association_tables import bookings_tables
 
 if TYPE_CHECKING:
+    from .booking import Booking
     from .cafe import Cafe
 
 
@@ -21,8 +22,8 @@ class Table(Base):
         back_populates='tables',
         lazy='select',
     )
-    bookings: Mapped[list['Cafe']] = relationship(
-        secondary=bookings_tabels,
+    bookings: Mapped[list['Booking']] = relationship(
+        secondary=bookings_tables,
         back_populates='tables',
         lazy='select',
     )
