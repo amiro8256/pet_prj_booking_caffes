@@ -1,8 +1,8 @@
 """исправлены имена атрибутов user->cafe, booking->table
 
-Revision ID: 7cf170b19154
+Revision ID: 1caae59298c5
 Revises: 018b0680ce9c
-Create Date: 2026-04-03 17:48:06.727134
+Create Date: 2026-04-10 01:28:32.174232
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '7cf170b19154'
+revision: str = '1caae59298c5'
 down_revision: Union[str, Sequence[str], None] = '018b0680ce9c'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None

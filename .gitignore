@@ -165,6 +165,7 @@ cython_debug/
 .idea/
 .vscode/
 dev.db
+*.db
 infra/.env
 .venv/
 __pycache__/

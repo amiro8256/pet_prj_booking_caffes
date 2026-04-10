@@ -22,5 +22,6 @@ async def user_create(user_data: CreateUser):
     """Эндпоинт для создания нового пользователя."""
     async with Session() as session:
         new_user = await user_crud.create(session, user_data)
+        # использовать правильную схему ответа
         return new_user
 
