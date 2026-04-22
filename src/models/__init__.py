@@ -1,4 +1,4 @@
-from .user import User
+from .user import User, UserRole
 from .cafe import Cafe
 from .booking import Booking
 from .dish import Dish

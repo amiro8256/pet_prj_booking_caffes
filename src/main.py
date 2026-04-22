@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from core.config import settings
-from api.endpoints import router
+from api.endpoints.user import router
 
 
 

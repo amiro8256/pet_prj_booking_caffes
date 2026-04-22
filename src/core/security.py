@@ -18,3 +18,9 @@ class Security:
 
 
 security = Security()
+
+
+class TokenWorking:
+    """Класс создания, дукодирования JWT токена."""
+    def create_token(self, user_id: int)
+
